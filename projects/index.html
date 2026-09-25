@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мои проекты — Daniil Chernenkiy</title>
+  <meta name="description" content="Проекты и съёмки фотографа Даниила Черненкого.">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="../style.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="page-projects">
+
+  <header class="site-header reveal">
+    <div class="container site-header__inner">
+      <a class="brand" href="../index.html">Daniil&nbsp;Chernenkiy</a>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="../index.html">Главное</a></li>
+          <li><a class="nav__link" href="../pages/contact.html">Контакты</a></li>
+          <li><a class="nav__link is-active" href="index.html" aria-current="page">Мои проекты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Карточки собирает projects/render.js из projects/projects.js:
+         добавить проект — значит дописать объект в этот файл и создать папку. -->
+    <section class="projects-page container">
+      <h1 class="page-title">Мои проекты</h1>
+
+      <div class="projects" data-projects></div>
+
+      <noscript><p class="projects__note muted">Для списка проектов нужен включённый JavaScript.</p></noscript>
+    </section>
+  </main>
+
+  <footer class="site-footer reveal">
+    <div class="container site-footer__inner">
+      <a class="brand" href="../index.html">Daniil&nbsp;Chernenkiy</a>
+
+      <ul class="socials">
+        <li><a href="https://t.me/DaniiilCH" class="socials__link socials__link--telegram" target="_blank" rel="me noopener" aria-label="Telegram"></a></li>
+        <li><a href="https://www.instagram.com/daniilchernenkiy/" class="socials__link socials__link--instagram" target="_blank" rel="me noopener" aria-label="Instagram"></a></li>
+      </ul>
+
+      <p class="site-footer__copy">© <span data-year>2026</span> Daniil Chernenkiy. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="render.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
