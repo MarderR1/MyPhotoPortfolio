@@ -8,6 +8,8 @@
   updateYear(); // нужен всегда, поэтому до проверки на reduced-motion
   moveActiveNavFirst(); // и это тоже: порядок ссылок не связан с движением
   galleryLightbox(); // и он работает при любом предпочтении по движению
+  backToTopButton(); // кнопка есть всегда: это доступ, а не украшение;
+                     // плавность прокрутки она выбирает по предпочтению сама
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -116,6 +118,51 @@
     }, { passive: true });
 
     update(); // страница может открыться уже отпрокрученной (перезагрузка, якорь)
+  }
+
+  // ---------- Кнопка «наверх» ----------
+  // Строится в JS, как оверлей лайтбокса: без JS в разметке ничего лишнего,
+  // а hidden-состояние кнопки живёт под html.js в style.css (секция 14).
+  // Кнопка — функциональность, поэтому появляется и при reduced-motion;
+  // предпочтение влияет только на способ прокрутки (плавно / мгновенно).
+  function backToTopButton() {
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'back-to-top';
+    button.setAttribute('aria-label', 'Вернуться к началу страницы');
+    button.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" ' +
+      'stroke-linecap="square" aria-hidden="true"><path d="M5 15l7-7 7 7"/></svg>';
+    document.body.appendChild(button);
+
+    var SHOW_AFTER = 400; // px: чуть ниже первого экрана кнопка появляется...
+    // ... и прячется там же. Один порог, без мёртвой полосы как у шапки:
+    // кнопка закреплена (position: fixed) и не меняет высоту контента,
+    // поэтому scroll anchoring здесь нечего компенсировать — дрожи не будет.
+
+    function update() {
+      queued = false; // как в compactHeaderOnScroll: без этого слушатель
+                      // отработает один раз и замолкнет навсегда
+      button.classList.toggle('is-visible', window.scrollY > SHOW_AFTER);
+    }
+
+    var queued = false;
+    window.addEventListener('scroll', function () {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(update);
+    }, { passive: true });
+
+    button.addEventListener('click', function () {
+      var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if ('scrollBehavior' in document.documentElement.style) {
+        window.scrollTo({ top: 0, behavior: smooth ? 'smooth' : 'auto' });
+      } else {
+        window.scrollTo(0, 0); // старые движки без плавной прокрутки
+      }
+    });
+
+    update(); // страница может открыться уже отпрокрученной
   }
 
   // ---------- Лайтбокс галереи ----------

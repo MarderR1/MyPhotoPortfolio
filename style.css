@@ -146,6 +146,9 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-sm) var(--space-lg);
+  /* row-gap меняется в компактном состоянии — анимируем тем же временем,
+     что и отступы шапки (см. секцию 10) */
+  transition: gap var(--header-slide) var(--reveal-ease);
 }
 
 .nav__list {
@@ -468,7 +471,16 @@ main {
 }
 
 .js .site-header.is-compact {
-  padding-block: var(--space-xs) var(--space-2xs);
+  /* Сверху 16px вместо 10px: в сжатом виде заголовок не липнет к краю экрана,
+     а вместе с урезанным row-gap (ниже) оказывается ближе к кнопкам меню. */
+  padding-block: var(--space-sm) var(--space-2xs);
+}
+
+/* На узких экранах имя и меню стоят на двух строках (flex-wrap во inner).
+   В сжатом виде межстрочный зазор уменьшаем с 16px до 6px — заголовок
+   придвигается к навигации и общая высота шапки почти не меняется. */
+.js .site-header.is-compact .site-header__inner {
+  row-gap: var(--space-2xs);
 }
 
 /* Одно отключение движения для обоих механизмов: правила идут в конце файла,
@@ -812,5 +824,70 @@ html.is-lightbox-open body {
 
   .project-card__title {
     font-size: 20px;
+  }
+}
+
+/* ---------- 14. Кнопка «наверх» ----------
+   Узел создаёт js/main.js (backToTopButton), поэтому в разметке её нет,
+   а без JS она просто не существует. Класс .is-visible ставит тот же JS
+   после прокрутки за порог;appearance — одно мягкое появление, тем же
+   механизмом, что и остальной вход: opacity + небольшой подъём. */
+.js .back-to-top {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  /* env(...) приподнимает кнопку над панелью жестов на телефонах */
+  bottom: calc(clamp(16px, 3vw, 32px) + env(safe-area-inset-bottom, 0px));
+  z-index: 20; /* над прилипающей шапкой (10), под лайтбоксом (100) */
+  display: grid;
+  place-items: center;
+  width: 44px;   /* размер зоны нажатия — по минимуму для пальца */
+  height: 44px;
+  border-radius: 50%;
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-line);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px);
+  /* visibility со задержкой: скрытая кнопка не ловит клики и не ловит Tab,
+     но успевает доехать до прозрачности при появлении */
+  visibility: hidden;
+  transition:
+    opacity var(--header-slide) var(--reveal-ease),
+    transform var(--header-slide) var(--reveal-ease),
+    border-color 0.15s linear,
+    visibility 0s linear var(--header-slide);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.js .back-to-top.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.js .back-to-top:hover,
+.js .back-to-top:focus-visible {
+  border-color: var(--color-text); /* только граница: без теней и заливок */
+}
+
+.back-to-top svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+}
+
+/* Своё отключение движения — здесь, а не в общем блоке секции 9:
+   тот стоит выше по файлу и при равной специфичности проигрывает.
+   Сама кнопка остаётся: при reduced-motion она появляется мгновенно
+   и прокручивает без плавности (см. js/main.js). */
+@media (prefers-reduced-motion: reduce) {
+  .js .back-to-top {
+    transition: none;
+  }
+
+  .js .back-to-top.is-visible {
+    transform: none;
   }
 }
