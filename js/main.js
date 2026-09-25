@@ -144,7 +144,7 @@
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', 'Просмотр фотографии');
     overlay.innerHTML =
-      '<figure class="lightbox__stage"><img class="lightbox__img" alt=""></figure>' +
+      '<figure class="lightbox__stage"></figure>' +
       '<button class="lightbox__button lightbox__close" aria-label="Закрыть просмотр">' +
         '<svg viewBox="0 0 24 24" ' + ICON + '><path d="M5 5l14 14M19 5L5 19"/></svg>' +
       '</button>' +
@@ -155,7 +155,8 @@
         '<svg viewBox="0 0 24 24" ' + ICON + '><path d="M9 3l9 9-9 9"/></svg>' +
       '</button>';
 
-    var stageImg = overlay.querySelector('.lightbox__img');
+    var stage = overlay.querySelector('.lightbox__stage');
+    var stageImg = null; // текущий слайд: создаётся заново при каждом show()
     var controls = overlay.querySelectorAll('.lightbox__button');
 
     var current = -1;
@@ -195,10 +196,9 @@
     overlay.querySelector('.lightbox__nav--prev').addEventListener('click', function () { show(current - 1); });
     overlay.querySelector('.lightbox__nav--next').addEventListener('click', function () { show(current + 1); });
 
-    // Картинка показывается, только когда она реально на экране: до этого
+    // Слушатели load/error навешиваются на каждый новый слайд в show():
+    // картинка показывается, только когда она реально на экране — до этого
     // под ней тёмный фон, а не рамка надвигающегося изображения.
-    stageImg.addEventListener('load', function () { stageImg.classList.add('is-loaded'); });
-    stageImg.addEventListener('error', function () { stageImg.classList.add('is-loaded'); });
 
     overlay.addEventListener('touchstart', function (event) {
       swiped = false;
@@ -235,13 +235,21 @@
       var original = items[current].img;
       var src = sourceOf(items[current]);
 
-      stageImg.classList.remove('is-loaded');
+      // Каждый слайд — новый <img>, а старый узел удаляется из DOM.
+      // Если вместо этого менять src у того же элемента, мобильные
+      // движки (WebView в Telegram и подобные) оставляют в текстуре
+      // части прежнего фото: при смене соотношения сторон оно
+      // «призраком» висит за новым. Удалённый узел исчезает гарантированно,
+      // а высота и позиция сцены пересчитываются под новый снимок сами.
+      if (stageImg) stageImg.remove();
+      stageImg = document.createElement('img');
+      stageImg.className = 'lightbox__img';
       stageImg.alt = original.alt || '';
-      if (stageImg.getAttribute('src') === src) {
-        stageImg.classList.add('is-loaded'); // то же фото: события load не будет
-      } else {
-        stageImg.src = src;
-      }
+      stageImg.decoding = 'async';
+      stageImg.addEventListener('load', function () { stageImg.classList.add('is-loaded'); });
+      stageImg.addEventListener('error', function () { stageImg.classList.add('is-loaded'); });
+      stageImg.src = src;
+      stage.appendChild(stageImg);
 
       [-1, 1].forEach(function (step) {
         var neighbour = new Image();
