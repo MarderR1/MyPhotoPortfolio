@@ -80,7 +80,10 @@
           el.classList.add('is-visible');
           observer.unobserve(el);
         });
-    }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
+    // Положительный нижний отступ расширяет зону срабатывания за пределы экрана:
+    // элементы начинают появляться заранее, ещё до того, как до них доскроллят.
+    // Значение не зависит от порядка фотографий, их размеров и количества колонок.
+    }, { threshold: 0.05, rootMargin: '0px 0px 600px 0px' });
 
     Array.prototype.forEach.call(elements, function (el) {
       observer.observe(el);
