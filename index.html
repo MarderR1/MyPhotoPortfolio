@@ -32,19 +32,18 @@
   <main>
     <h1 class="visually-hidden">Фотографии</h1>
 
-    <!-- Галерея: masonry. Порядок фото = порядок съёмки, можно менять местами.
-         Фото идут группами по три портрета, квадратное и горизонтальное — в конце:
-         так колонки получаются одной высоты.
+    <!-- Галерея: masonry. Портреты и репортаж перемешаны, порядок произвольный —
+         менять местами и добавлять фото можно свободно, вёрстка этого не требует.
          Каждое фото — в <picture>: сверху лёгкая WebP-версия (assets/images/webp/),
          под ней — оригинал jpg как запаска для старых браузеров.
-         Первое картинка грузится сразу   (eager), остальные — по мере скролла (lazy).
-         При добавлении нового фото: ширина ~1000px, quality ~80. -->
+         Первое фото грузится сразу (eager), остальные — по мере скролла (lazy).
+         Формат файлов: длинная сторона 2500px, JPG q82 + WebP q70, width/height указывать реальными. -->
     <section class="gallery container" aria-label="Галерея фотографий">
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Masha-11.webp" type="image/webp">
-          <img src="assets/images/Masha-11.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="eager" fetchpriority="high" decoding="async">
+          <source srcset="assets/images/webp/Planik-124.webp" type="image/webp">
+          <img src="assets/images/Planik-124.jpg" alt="Репортаж — Planik" width="1892" height="2500" loading="eager" fetchpriority="high" decoding="async">
         </picture>
       </figure>
 
@@ -57,8 +56,92 @@
 
       <figure class="gallery__item reveal">
         <picture>
+          <source srcset="assets/images/webp/Vika-34.webp" type="image/webp">
+          <img src="assets/images/Vika-34.jpg" alt="Портрет — Vika" width="1000" height="1501" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Spring2026-31.webp" type="image/webp">
+          <img src="assets/images/Spring2026-31.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/angel-12.webp" type="image/webp">
+          <img src="assets/images/angel-12.jpeg" alt="Портрет — Angel" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Planik-69.webp" type="image/webp">
+          <img src="assets/images/Planik-69.jpg" alt="Репортаж — Planik" width="2500" height="1667" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/IMG-6015.webp" type="image/webp">
+          <img src="assets/images/IMG-6015.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Sasha-08.webp" type="image/webp">
+          <img src="assets/images/Sasha-08.jpg" alt="Портрет — Sasha" width="2500" height="1667" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
           <source srcset="assets/images/webp/angel-10.webp" type="image/webp">
           <img src="assets/images/angel-10.jpeg" alt="Портрет — Angel" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Vika-38.webp" type="image/webp">
+          <img src="assets/images/Vika-38.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Spring2026-86.webp" type="image/webp">
+          <img src="assets/images/Spring2026-86.jpg" alt="Репортаж — Spring 2026" width="2500" height="1667" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/IMG-6016.webp" type="image/webp">
+          <img src="assets/images/IMG-6016.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/IMG-6017.webp" type="image/webp">
+          <img src="assets/images/IMG-6017.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/ElevenA-08.webp" type="image/webp">
+          <img src="assets/images/ElevenA-08.jpg" alt="Репортаж — 11А" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Vika-11.webp" type="image/webp">
+          <img src="assets/images/Vika-11.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -71,8 +154,36 @@
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Vika-11.webp" type="image/webp">
-          <img src="assets/images/Vika-11.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/Springcon-04.webp" type="image/webp">
+          <img src="assets/images/Springcon-04.jpg" alt="Репортаж — Springcon" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Masha-11.webp" type="image/webp">
+          <img src="assets/images/Masha-11.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Planik-131.webp" type="image/webp">
+          <img src="assets/images/Planik-131.jpg" alt="Репортаж — Planik" width="2500" height="1667" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Spring2026-35.webp" type="image/webp">
+          <img src="assets/images/Spring2026-35.jpg" alt="Репортаж — Spring 2026" width="2500" height="1667" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/IMG-6014.webp" type="image/webp">
+          <img src="assets/images/IMG-6014.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -92,33 +203,25 @@
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Vika-38.webp" type="image/webp">
-          <img src="assets/images/Vika-38.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/Planik-125.webp" type="image/webp">
+          <img src="assets/images/Planik-125.jpg" alt="Репортаж — Planik" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/angel-12.webp" type="image/webp">
-          <img src="assets/images/angel-12.jpeg" alt="Портрет — Angel" width="1667" height="2500" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/Podsneznik-007.webp" type="image/webp">
+          <img src="assets/images/Podsneznik-007.jpg" alt="Репортаж — Подснежник" width="2500" height="1667" loading="lazy" decoding="async">
         </picture>
       </figure>
-      
-      
+
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Vika-34.webp" type="image/webp">
-          <img src="assets/images/Vika-34.jpg" alt="Портрет — Vika" width="1000" height="1501" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/Spring2026-44.webp" type="image/webp">
+          <img src="assets/images/Spring2026-44.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
-      
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Sasha-08.webp" type="image/webp">
-          <img src="assets/images/Sasha-08.jpg" alt="Портрет — Sasha" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-      
+
       <figure class="gallery__item reveal">
         <picture>
           <source srcset="assets/images/webp/Vika-04.webp" type="image/webp">
@@ -126,6 +229,12 @@
         </picture>
       </figure>
 
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Planik-81.webp" type="image/webp">
+          <img src="assets/images/Planik-81.jpg" alt="Репортаж — Planik" width="1783" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
 
     </section>
   </main>
