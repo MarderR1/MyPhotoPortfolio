@@ -38,12 +38,12 @@
   --header-h: 99px;
 
   /* Type
-     Логотип набран Sora (Google Fonts); dinot.ttf остался в стеке запаской — без
+     Логотип набран Marcellus (Google Fonts); dinot.ttf остался в стеке запаской — без
      интернета имя не поедет на системный шрифт.
      ВАЖНО: dinot.ttf содержит только латиницу — он используется исключительно
      для имени-логотипа "Daniil Chernenkiy". Русские заголовки набираются
      NewsCycle (в нём кириллица есть). */
-  --font-brand: "Sora", "DINOT", "Helvetica Neue", Arial, sans-serif;
+  --font-brand: "Marcellus", "DINOT", "Helvetica Neue", Arial, sans-serif;
   --font-body: "NewsCycle", "Helvetica Neue", Arial, sans-serif;
 
   /* Motion: одно мягкое появление, без пружин и параллакса */
