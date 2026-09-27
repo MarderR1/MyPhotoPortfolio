@@ -34,8 +34,8 @@
 
       link.appendChild(el('h2', 'project-card__title', project.title));
 
-      var meta = metaLine(project);
-      if (meta) link.appendChild(el('p', 'project-card__meta', meta));
+      // Подписи (meta) на карточках не показываются — они только на странице
+      // самого проекта; данные те же, что читает renderProject().
 
       var card = el('article', 'project-card reveal');
       card.appendChild(link);
