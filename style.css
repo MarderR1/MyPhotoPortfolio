@@ -187,6 +187,30 @@ main {
   column-gap: var(--gallery-gap);
 }
 
+/* Резервная раскладка «колодцем» (columns) заполняет сайт по колонкам:
+   сверху вниз первую, потом вторую — порядок фотографий читается непонятно.
+   На главной js/main.js перестраивает галерею этим классом в ряды:
+   фото №1–№3 ложатся в верхний ряд слева направо, дальше — вниз.
+   Без JS и при сломанном скрипте остаётся прежняя колоночная вёрстка. */
+.gallery--rows {
+  display: flex;
+  align-items: flex-start;
+  columns: auto;
+  gap: var(--gallery-gap);
+}
+
+.gallery--rows .gallery__col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gallery-gap);
+}
+
+.gallery--rows .gallery__item {
+  margin: 0;
+}
+
 .gallery__item {
   break-inside: avoid;
   margin: 0 0 var(--gallery-gap);

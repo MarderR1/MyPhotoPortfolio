@@ -32,32 +32,26 @@
   <main>
     <h1 class="visually-hidden">Фотографии</h1>
 
-    <!-- Галерея: masonry. Портреты и репортаж перемешаны, порядок произвольный —
-         менять местами и добавлять фото можно свободно, вёрстка этого не требует.
+    <!-- Галерея: masonry. Порядок здесь = порядок «Главная галерея» в админке
+         WordPress (D:\MAMP\htdocs\portfolio) — он же читается на сайте ряд за рядом,
+         потому что js/main.js раскладывает фигуры по колонкам заново.
          Каждое фото — в <picture>: сверху лёгкая WebP-версия (assets/images/webp/),
          под ней — оригинал jpg как запаска для старых браузеров.
          Первое фото грузится сразу (eager), остальные — по мере скролла (lazy).
          Формат файлов: длинная сторона 2500px, JPG q82 + WebP q70, width/height указывать реальными. -->
-    <section class="gallery container" aria-label="Галерея фотографий">
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Sasha-01.webp" type="image/webp">
-          <img src="assets/images/Sasha-01.jpg" alt="Портрет — Sasha" width="1667" height="2500" loading="eager" fetchpriority="high" decoding="async">
-        </picture>
-      </figure>
+    <section class="gallery container" data-gallery="home" aria-label="Галерея фотографий">
 
       <figure class="gallery__item reveal">
         <picture>
           <source srcset="assets/images/webp/Vika-34.webp" type="image/webp">
-          <img src="assets/images/Vika-34.jpg" alt="Портрет — Vika" width="1000" height="1501" loading="lazy" decoding="async">
+          <img src="assets/images/Vika-34.jpg" alt="Портрет — Vika" width="1000" height="1501" loading="eager" fetchpriority="high" decoding="async">
         </picture>
       </figure>
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Spring2026-31.webp" type="image/webp">
-          <img src="assets/images/Spring2026-31.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/Planik-125.webp" type="image/webp">
+          <img src="assets/images/Planik-125.jpg" alt="Репортаж — Planik" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -70,22 +64,22 @@
 
       <figure class="gallery__item reveal">
         <picture>
+          <source srcset="assets/images/webp/Sasha-01.webp" type="image/webp">
+          <img src="assets/images/Sasha-01.jpg" alt="Портрет — Sasha" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Masha-16.webp" type="image/webp">
+          <img src="assets/images/Masha-16.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
           <source srcset="assets/images/webp/Planik-69.webp" type="image/webp">
           <img src="assets/images/Planik-69.jpg" alt="Репортаж — Planik" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/IMG-6015.webp" type="image/webp">
-          <img src="assets/images/IMG-6015.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Sasha-08.webp" type="image/webp">
-          <img src="assets/images/Sasha-08.jpg" alt="Портрет — Sasha" width="2500" height="1667" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -98,8 +92,36 @@
 
       <figure class="gallery__item reveal">
         <picture>
+          <source srcset="assets/images/webp/Masha-11.webp" type="image/webp">
+          <img src="assets/images/Masha-11.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/IMG-6015.webp" type="image/webp">
+          <img src="assets/images/IMG-6015.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
           <source srcset="assets/images/webp/Vika-38.webp" type="image/webp">
           <img src="assets/images/Vika-38.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Sasha-08.webp" type="image/webp">
+          <img src="assets/images/Sasha-08.jpg" alt="Портрет — Sasha" width="2500" height="1667" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Spring2026-31.webp" type="image/webp">
+          <img src="assets/images/Spring2026-31.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -126,8 +148,29 @@
 
       <figure class="gallery__item reveal">
         <picture>
+          <source srcset="assets/images/webp/Vika-04.webp" type="image/webp">
+          <img src="assets/images/Vika-04.jpg" alt="Портрет — Vika" width="2500" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Planik-81.webp" type="image/webp">
+          <img src="assets/images/Planik-81.jpg" alt="Репортаж — Planik" width="1783" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
           <source srcset="assets/images/webp/ElevenA-08.webp" type="image/webp">
           <img src="assets/images/ElevenA-08.jpg" alt="Репортаж — 11А" width="1667" height="2500" loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <figure class="gallery__item reveal">
+        <picture>
+          <source srcset="assets/images/webp/Dasha-18.webp" type="image/webp">
+          <img src="assets/images/Dasha-18.jpg" alt="Портрет — Dasha" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -140,22 +183,8 @@
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Masha-16.webp" type="image/webp">
-          <img src="assets/images/Masha-16.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
           <source srcset="assets/images/webp/Springcon-04.webp" type="image/webp">
           <img src="assets/images/Springcon-04.jpg" alt="Репортаж — Springcon" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Masha-11.webp" type="image/webp">
-          <img src="assets/images/Masha-11.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -175,8 +204,8 @@
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/IMG-6014.webp" type="image/webp">
-          <img src="assets/images/IMG-6014.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/Podsneznik-007.webp" type="image/webp">
+          <img src="assets/images/Podsneznik-007.jpg" alt="Репортаж — Подснежник" width="2500" height="1667" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -189,22 +218,8 @@
 
       <figure class="gallery__item reveal">
         <picture>
-          <source srcset="assets/images/webp/Dasha-18.webp" type="image/webp">
-          <img src="assets/images/Dasha-18.jpg" alt="Портрет — Dasha" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Planik-125.webp" type="image/webp">
-          <img src="assets/images/Planik-125.jpg" alt="Репортаж — Planik" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Podsneznik-007.webp" type="image/webp">
-          <img src="assets/images/Podsneznik-007.jpg" alt="Репортаж — Подснежник" width="2500" height="1667" loading="lazy" decoding="async">
+          <source srcset="assets/images/webp/IMG-6014.webp" type="image/webp">
+          <img src="assets/images/IMG-6014.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -212,20 +227,6 @@
         <picture>
           <source srcset="assets/images/webp/Spring2026-44.webp" type="image/webp">
           <img src="assets/images/Spring2026-44.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Vika-04.webp" type="image/webp">
-          <img src="assets/images/Vika-04.jpg" alt="Портрет — Vika" width="2500" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Planik-81.webp" type="image/webp">
-          <img src="assets/images/Planik-81.jpg" alt="Репортаж — Planik" width="1783" height="2500" loading="lazy" decoding="async">
         </picture>
       </figure>
 

@@ -10,6 +10,8 @@
   galleryLightbox(); // и он работает при любом предпочтении по движению
   backToTopButton(); // кнопка есть всегда: это доступ, а не украшение;
                      // плавность прокрутки она выбирает по предпочтению сама
+  homeGalleryRows(); // и это тоже раскладка, а не анимация:
+                     // порядок фотографий на главной должен читаться ряд за рядом
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -358,5 +360,100 @@
       document.documentElement.classList.remove('is-lightbox-open');
       window.scrollTo(0, scrollY); // возвращаем то же место страницы
     }
+  }
+
+  // ---------- Главная галерея: порядок ряд за рядом ----------
+  // CSS-раскладка columns заполняет сайт по колонкам (сверху вниз), и порядок
+  // из админки WordPress «Главная галерея» на экране читается непонятно. Здесь
+  // фигуры раскладываются по колонкам заново — по порядку, но в самую короткую
+  // на данный момент колонку. Фото №1–№3 при этом всегда встают в верхний ряд
+  // слева направо, дальше порядок идёт вниз. Порядок просмотра лайтбокса
+  // фиксируется до перестановки (galleryLightbox вызвана раньше), поэтому
+  // стрелки в полноэкранном режиме листают ровно тот же порядок, что в админке.
+  function homeGalleryRows() {
+    var gallery = document.querySelector('.gallery[data-gallery="home"]');
+    if (!gallery) return;
+
+    var figures = Array.prototype.slice.call(gallery.querySelectorAll('.gallery__item'));
+    if (figures.length < 2) return;
+
+    // Количество колонок совпадает с медиазапросами style.css.
+    var narrow = window.matchMedia('(max-width: 480px)');
+    var medium = window.matchMedia('(max-width: 820px)');
+    function columnsCount() {
+      if (narrow.matches) return 1;
+      if (medium.matches) return 2;
+      return 3;
+    }
+
+    // Соотношение сторон берём из width/height, которые стоят в каждом <img>,
+    // — расчёт не зависит от того, загрузилась картинка или нет. Дробь
+    // округляем до сотых: WordPress отдаёт в сетке уменьшенную копию
+    // (667×1000 вместо 1667×2500), и без округления расхождение в четвертом
+    // знаке накопилось бы по колонке и выдало бы разную раскладку на сайте
+    // и в админке при одинаковом порядке фото.
+    var missingRatio = [];
+    function ratioOf(figure) {
+      var img = figure.querySelector('img');
+      if (!img) return 1;
+      var w = parseInt(img.getAttribute('width'), 10);
+      var h = parseInt(img.getAttribute('height'), 10);
+      if (w > 0 && h > 0) return Math.round((h / w) * 100) / 100;
+      if (img.naturalWidth > 0) return Math.round((img.naturalHeight / img.naturalWidth) * 100) / 100;
+      if (missingRatio.indexOf(figure) === -1) missingRatio.push(figure);
+      return 1;
+    }
+
+    function layout() {
+      var n = columnsCount();
+      var cols = [];
+      var heights = [];
+      var i;
+
+      Array.prototype.forEach.call(gallery.querySelectorAll('.gallery__col'), function (c) { c.remove(); });
+
+      for (i = 0; i < n; i++) {
+        var col = document.createElement('div');
+        col.className = 'gallery__col';
+        cols.push(col);
+        heights.push(0);
+        gallery.appendChild(col);
+      }
+
+      // Реальная ширина колонки (после вставки в DOM) — рядом с padding .container
+      // арифметика «на глаз» давала бы сдвиг при переполнении.
+      var colWidth = cols[0].clientWidth || 1;
+      var styles = window.getComputedStyle(gallery);
+      var gap = parseFloat(styles.columnGap || styles.gap) || 16;
+
+      figures.forEach(function (figure) {
+        var k = 0;
+        for (i = 1; i < n; i++) {
+          if (heights[i] < heights[k] - 0.5) k = i; // при одинаковой высоте выбираем левее
+        }
+        cols[k].appendChild(figure);
+        heights[k] += colWidth * ratioOf(figure) + gap;
+      });
+
+      gallery.classList.add('gallery--rows');
+    }
+
+    layout();
+
+    // Перекладка при смене ширины окна и при срабатывании медиазапросов.
+    var queued = false;
+    function relayout() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(function () { queued = false; layout(); });
+    }
+    window.addEventListener('resize', relayout, { passive: true });
+    if (narrow.addEventListener) { narrow.addEventListener('change', relayout); medium.addEventListener('change', relayout); }
+
+    // Если у какого-то фото не было размеров в разметке — пересчитать после загрузки.
+    missingRatio.forEach(function (figure) {
+      var img = figure.querySelector('img');
+      if (img) img.addEventListener('load', function () { layout(); }, { once: true });
+    });
   }
 })();
