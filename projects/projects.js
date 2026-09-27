@@ -34,7 +34,7 @@ window.PROJECTS = [
   {
     slug: 'Yuka-drift',
     title: 'Yuka Drift',
-    meta: [],
+    meta: ['Соревнования по Джимхане Самара 2026'],
     summary: '',
     cover: { src: 'cover.jpg', webp: 'cover.webp', alt: 'Yuka Drift', width: 1875, height: 2500 },
     images: [
@@ -58,12 +58,11 @@ window.PROJECTS = [
   {
     slug: 'FashionTerritory',
     title: 'Территория моды',
-    meta: [],
+    meta: ['Показ мод в тц "Гудок" Самара'],
     summary: '',
     cover: { src: 'cover.jpg', webp: 'cover.webp', alt: 'Территория моды', width: 1667, height: 2501 },
     images: [
       { src: 'FashionTerritory-001.jpg', width: 1667, height: 2500 },
-      { src: 'FashionTerritory-003.jpg', width: 2500, height: 1667 },
       { src: 'FashionTerritory-019.jpg', width: 1667, height: 2500 },
       { src: 'FashionTerritory-037.jpg', width: 1667, height: 2500 },
       { src: 'FashionTerritory-038.jpg', width: 1667, height: 2500 },
