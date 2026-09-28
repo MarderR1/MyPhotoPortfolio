@@ -1,61 +1,69 @@
 <!DOCTYPE html>
-<html lang="ru">
+<?xml encoding="utf-8"?><html lang="ru-RU">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мои проекты — Daniil Chernenkiy</title>
-  <meta name="description" content="Проекты и съёмки фотографа Даниила Черненкого.">
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../reset.css">
-  <link rel="stylesheet" href="../style.css">
-  <script>document.documentElement.classList.add('js');</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link rel="preconnect" href="https://fonts.googleapis.com">
+	<title>Мои проекты &mdash; Daniil Chernenkiy</title>
+
+
+<meta name="description" content="Проекты и съёмки фотографа Даниила Черненкого.">
+
+<link rel="stylesheet" id="ch-reset-css" href="../reset.css" media="all">
+<link rel="stylesheet" id="ch-style-css" href="../style.css" media="all">
+<link rel="stylesheet" id="ch-marcellus-css" href="https://fonts.googleapis.com/css2?family=Marcellus&amp;display=swap" media="all">
+	<script>document.documentElement.classList.add('js');</script>
 </head>
-<body class="page-projects">
+<body class="archive post-type-archive post-type-archive-project wp-theme-chernenkiy-portfolio page-projects">
 
-  <header class="site-header reveal">
-    <div class="container site-header__inner">
-      <a class="brand" href="../index.html">Daniil&nbsp;Chernenkiy</a>
+<header class="site-header reveal">
+	<div class="container site-header__inner">
+		<a class="brand" href="../">Daniil&nbsp;Chernenkiy</a>
 
-      <nav class="nav" aria-label="Основная навигация">
-        <ul class="nav__list">
-          <li><a class="nav__link" href="../index.html">Главное</a></li>
-          <li><a class="nav__link" href="../pages/contact.html">Контакты</a></li>
-          <li><a class="nav__link is-active" href="index.html" aria-current="page">Мои проекты</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+		<nav class="nav" aria-label="Основная навигация">
+			<ul class="nav__list"><li><a class="nav__link" href="../">Главное</a></li><li><a class="nav__link" href="../contact/">Контакты</a></li><li><a class="nav__link is-active" aria-current="page" href="../projects/">Мои проекты</a></li></ul>		</nav>
+	</div>
+</header>
 
-  <main>
-    <!-- Карточки собирает projects/render.js из projects/projects.js:
-         добавить проект — значит дописать объект в этот файл и создать папку. -->
-    <section class="projects-page container">
-      <h1 class="page-title">Мои проекты</h1>
+<main>
+	<section class="projects-page container">
+		<h1 class="page-title">Мои проекты</h1>
 
-      <div class="projects" data-projects></div>
+				<div class="projects">
+							<article class="project-card reveal">
+					<a class="project-card__link" href="../projects/yuka-drift/">
+						<figure class="project-card__media">
+							<picture><source srcset="../projects/yuka-drift/cover.webp" type="image/webp"><img src="../projects/yuka-drift/cover.jpg" alt="Yuka Drift" width="1875" height="2500" loading="eager" fetchpriority="high" decoding="async"></picture>						</figure>
+						<h2 class="project-card__title">Yuka Drift</h2>
+						<!-- подписи под карточками не показываются: они только на странице проекта -->
+						</a>
+				</article>
+								<article class="project-card reveal">
+					<a class="project-card__link" href="../projects/territoriya-mody/">
+						<figure class="project-card__media">
+							<picture><source srcset="../projects/territoriya-mody/cover.webp" type="image/webp"><img src="../projects/territoriya-mody/cover.jpg" alt="Территория моды" width="1666" height="2500" loading="lazy" decoding="async"></picture>						</figure>
+						<h2 class="project-card__title">Территория моды</h2>
+						<!-- подписи под карточками не показываются: они только на странице проекта -->
+						</a>
+				</article>
+						</div>
+			</section>
+</main>
 
-      <noscript><p class="projects__note muted">Для списка проектов нужен включённый JavaScript.</p></noscript>
-    </section>
-  </main>
+<footer class="site-footer reveal">
+	<div class="container site-footer__inner">
+		<a class="brand" href="../">Daniil&nbsp;Chernenkiy</a>
 
-  <footer class="site-footer reveal">
-    <div class="container site-footer__inner">
-      <a class="brand" href="../index.html">Daniil&nbsp;Chernenkiy</a>
+		<ul class="socials">
+						<li><a href="https://t.me/DaniiilCH" class="socials__link socials__link--telegram" target="_blank" rel="me noopener" aria-label="Telegram"></a></li>
+									<li><a href="https://www.instagram.com/daniilchernenkiy/" class="socials__link socials__link--instagram" target="_blank" rel="me noopener" aria-label="Instagram"></a></li>
+					</ul>
 
-      <ul class="socials">
-        <li><a href="https://t.me/DaniiilCH" class="socials__link socials__link--telegram" target="_blank" rel="me noopener" aria-label="Telegram"></a></li>
-        <li><a href="https://www.instagram.com/daniilchernenkiy/" class="socials__link socials__link--instagram" target="_blank" rel="me noopener" aria-label="Instagram"></a></li>
-      </ul>
+		<p class="site-footer__copy">&copy; <span data-year>2026</span> Daniil Chernenkiy. Все права защищены.</p>
+	</div>
+</footer>
 
-      <p class="site-footer__copy">© <span data-year>2026</span> Daniil Chernenkiy. Все права защищены.</p>
-    </div>
-  </footer>
 
-  <script src="projects.js"></script>
-  <script src="render.js"></script>
-  <script src="../js/main.js"></script>
+<script id="ch-main-js" src="../js/main.js"></script>
 </body>
 </html>

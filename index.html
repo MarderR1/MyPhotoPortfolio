@@ -1,251 +1,52 @@
 <!DOCTYPE html>
-<html lang="ru">
+<?xml encoding="utf-8"?><html lang="ru-RU">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Даниил Черненький — фотограф</title>
-  <meta name="description" content="Портфолио фотографа Даниила Черненкого.">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
-  <script>document.documentElement.classList.add('js');</script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link rel="preconnect" href="https://fonts.googleapis.com">
+	<title>Даниил Черненький &mdash; фотограф</title>
+
+
+<meta name="description" content="Портфолио фотографа Даниила Черненкого.">
+
+<link rel="stylesheet" id="ch-reset-css" href="./reset.css" media="all">
+<link rel="stylesheet" id="ch-style-css" href="./style.css" media="all">
+<link rel="stylesheet" id="ch-marcellus-css" href="https://fonts.googleapis.com/css2?family=Marcellus&amp;display=swap" media="all">
+
+	<script>document.documentElement.classList.add('js');</script>
 </head>
-<body>
+<body class="home wp-singular page-template-default page page-id-81 wp-theme-chernenkiy-portfolio">
 
-  <header class="site-header reveal">
-    <div class="container site-header__inner">
-      <a class="brand" href="index.html">Daniil&nbsp;Chernenkiy</a>
+<header class="site-header reveal">
+	<div class="container site-header__inner">
+		<a class="brand" href="./">Daniil&nbsp;Chernenkiy</a>
 
-      <nav class="nav" aria-label="Основная навигация">
-        <ul class="nav__list">
-          <li><a class="nav__link is-active" href="index.html" aria-current="page">Главное</a></li>
-          <li><a class="nav__link" href="pages/contact.html">Контакты</a></li>
-          <li><a class="nav__link" href="projects/index.html">Мои проекты</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+		<nav class="nav" aria-label="Основная навигация">
+			<ul class="nav__list"><li><a class="nav__link is-active" aria-current="page" href="./">Главное</a></li><li><a class="nav__link" href="./contact/">Контакты</a></li><li><a class="nav__link" href="./projects/">Мои проекты</a></li></ul>		</nav>
+	</div>
+</header>
 
-  <main>
-    <h1 class="visually-hidden">Фотографии</h1>
+<main>
+	<h1 class="visually-hidden">Фотографии</h1>
 
-    <!-- Галерея: masonry. Порядок здесь = порядок «Главная галерея» в админке
-         WordPress (D:\MAMP\htdocs\portfolio) — он же читается на сайте ряд за рядом,
-         потому что js/main.js раскладывает фигуры по колонкам заново.
-         Каждое фото — в <picture>: сверху лёгкая WebP-версия (assets/images/webp/),
-         под ней — оригинал jpg как запаска для старых браузеров.
-         Первое фото грузится сразу (eager), остальные — по мере скролла (lazy).
-         Формат файлов: длинная сторона 2500px, JPG q82 + WebP q70, width/height указывать реальными. -->
-    <section class="gallery container" data-gallery="home" aria-label="Галерея фотографий">
+	<section class="gallery container" data-gallery="home" aria-label="Галерея фотографий">
+		<figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Masha-16.webp" type="image/webp"><img src="./assets/images/Masha-16.jpeg" alt="Портрет &mdash; Masha" width="1667" height="2500" data-full="./assets/images/Masha-16.jpeg" loading="eager" fetchpriority="high" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Sasha-01.webp" type="image/webp"><img src="./assets/images/Sasha-01.jpg" alt="Портрет &mdash; Sasha" width="1667" height="2500" data-full="./assets/images/Sasha-01.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Planik-125.webp" type="image/webp"><img src="./assets/images/Planik-125.jpg" alt="Репортаж &mdash; Planik" width="1667" height="2500" data-full="./assets/images/Planik-125.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Vika-34.webp" type="image/webp"><img src="./assets/images/Vika-34.jpg" alt="Портрет &mdash; Vika" width="1666" height="2500" data-full="./assets/images/Vika-34.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/angel-12.webp" type="image/webp"><img src="./assets/images/angel-12.jpeg" alt="Портрет &mdash; Angel" width="1667" height="2500" data-full="./assets/images/angel-12.jpeg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Planik-69.webp" type="image/webp"><img src="./assets/images/Planik-69.jpg" alt="Репортаж &mdash; Planik" width="2500" height="1667" data-full="./assets/images/Planik-69.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/angel-10.webp" type="image/webp"><img src="./assets/images/angel-10.jpeg" alt="Портрет &mdash; Angel" width="1667" height="2500" data-full="./assets/images/angel-10.jpeg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Masha-11.webp" type="image/webp"><img src="./assets/images/Masha-11.jpeg" alt="Портрет &mdash; Masha" width="1667" height="2500" data-full="./assets/images/Masha-11.jpeg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/IMG-6015.webp" type="image/webp"><img src="./assets/images/IMG-6015.jpg" alt="Репортаж" width="1667" height="2500" data-full="./assets/images/IMG-6015.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Vika-38.webp" type="image/webp"><img src="./assets/images/Vika-38.jpg" alt="Портрет &mdash; Vika" width="1667" height="2500" data-full="./assets/images/Vika-38.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Sasha-08.webp" type="image/webp"><img src="./assets/images/Sasha-08.jpg" alt="Портрет &mdash; Sasha" width="2500" height="1667" data-full="./assets/images/Sasha-08.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Spring2026-31.webp" type="image/webp"><img src="./assets/images/Spring2026-31.jpg" alt="Репортаж &mdash; Spring 2026" width="1667" height="2500" data-full="./assets/images/Spring2026-31.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Spring2026-86.webp" type="image/webp"><img src="./assets/images/Spring2026-86.jpg" alt="Репортаж &mdash; Spring 2026" width="2500" height="1667" data-full="./assets/images/Spring2026-86.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/IMG-6016.webp" type="image/webp"><img src="./assets/images/IMG-6016.jpg" alt="Репортаж" width="1667" height="2500" data-full="./assets/images/IMG-6016.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/IMG-6017.webp" type="image/webp"><img src="./assets/images/IMG-6017.jpg" alt="Репортаж" width="1667" height="2500" data-full="./assets/images/IMG-6017.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Vika-04.webp" type="image/webp"><img src="./assets/images/Vika-04.jpg" alt="Портрет &mdash; Vika" width="2500" height="2500" data-full="./assets/images/Vika-04.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Planik-81.webp" type="image/webp"><img src="./assets/images/Planik-81.jpg" alt="Репортаж &mdash; Planik" width="1783" height="2500" data-full="./assets/images/Planik-81.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/ElevenA-08.webp" type="image/webp"><img src="./assets/images/ElevenA-08.jpg" alt="Репортаж &mdash; 11А" width="1667" height="2500" data-full="./assets/images/ElevenA-08.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Dasha-18.webp" type="image/webp"><img src="./assets/images/Dasha-18.jpg" alt="Портрет &mdash; Dasha" width="1667" height="2500" data-full="./assets/images/Dasha-18.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Vika-11.webp" type="image/webp"><img src="./assets/images/Vika-11.jpg" alt="Портрет &mdash; Vika" width="1667" height="2500" data-full="./assets/images/Vika-11.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Springcon-04.webp" type="image/webp"><img src="./assets/images/Springcon-04.jpg" alt="Репортаж &mdash; Springcon" width="1667" height="2500" data-full="./assets/images/Springcon-04.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Planik-131.webp" type="image/webp"><img src="./assets/images/Planik-131.jpg" alt="Репортаж &mdash; Planik" width="2500" height="1667" data-full="./assets/images/Planik-131.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Spring2026-35.webp" type="image/webp"><img src="./assets/images/Spring2026-35.jpg" alt="Репортаж &mdash; Spring 2026" width="2500" height="1667" data-full="./assets/images/Spring2026-35.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Podsneznik-007.webp" type="image/webp"><img src="./assets/images/Podsneznik-007.jpg" alt="Репортаж &mdash; Подснежник" width="2500" height="1667" data-full="./assets/images/Podsneznik-007.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/margo-07.webp" type="image/webp"><img src="./assets/images/margo-07.jpg" alt="Портрет &mdash; Margo" width="1667" height="2500" data-full="./assets/images/margo-07.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/IMG-6014.webp" type="image/webp"><img src="./assets/images/IMG-6014.jpg" alt="Репортаж" width="1667" height="2500" data-full="./assets/images/IMG-6014.jpg" loading="lazy" decoding="async"></picture></figure><figure class="gallery__item reveal"><picture><source srcset="./assets/images/webp/Spring2026-44.webp" type="image/webp"><img src="./assets/images/Spring2026-44.jpg" alt="Репортаж &mdash; Spring 2026" width="1667" height="2500" data-full="./assets/images/Spring2026-44.jpg" loading="lazy" decoding="async"></picture></figure>	</section>
+</main>
 
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Vika-34.webp" type="image/webp">
-          <img src="assets/images/Vika-34.jpg" alt="Портрет — Vika" width="1000" height="1501" loading="eager" fetchpriority="high" decoding="async">
-        </picture>
-      </figure>
+<footer class="site-footer reveal">
+	<div class="container site-footer__inner">
+		<a class="brand" href="./">Daniil&nbsp;Chernenkiy</a>
 
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Planik-125.webp" type="image/webp">
-          <img src="assets/images/Planik-125.jpg" alt="Репортаж — Planik" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
+		<ul class="socials">
+						<li><a href="https://t.me/DaniiilCH" class="socials__link socials__link--telegram" target="_blank" rel="me noopener" aria-label="Telegram"></a></li>
+									<li><a href="https://www.instagram.com/daniilchernenkiy/" class="socials__link socials__link--instagram" target="_blank" rel="me noopener" aria-label="Instagram"></a></li>
+					</ul>
 
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/angel-12.webp" type="image/webp">
-          <img src="assets/images/angel-12.jpeg" alt="Портрет — Angel" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
+		<p class="site-footer__copy">&copy; <span data-year>2026</span> Daniil Chernenkiy. Все права защищены.</p>
+	</div>
+</footer>
 
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Sasha-01.webp" type="image/webp">
-          <img src="assets/images/Sasha-01.jpg" alt="Портрет — Sasha" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
 
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Masha-16.webp" type="image/webp">
-          <img src="assets/images/Masha-16.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Planik-69.webp" type="image/webp">
-          <img src="assets/images/Planik-69.jpg" alt="Репортаж — Planik" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/angel-10.webp" type="image/webp">
-          <img src="assets/images/angel-10.jpeg" alt="Портрет — Angel" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Masha-11.webp" type="image/webp">
-          <img src="assets/images/Masha-11.jpeg" alt="Портрет — Masha" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/IMG-6015.webp" type="image/webp">
-          <img src="assets/images/IMG-6015.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Vika-38.webp" type="image/webp">
-          <img src="assets/images/Vika-38.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Sasha-08.webp" type="image/webp">
-          <img src="assets/images/Sasha-08.jpg" alt="Портрет — Sasha" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Spring2026-31.webp" type="image/webp">
-          <img src="assets/images/Spring2026-31.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Spring2026-86.webp" type="image/webp">
-          <img src="assets/images/Spring2026-86.jpg" alt="Репортаж — Spring 2026" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/IMG-6016.webp" type="image/webp">
-          <img src="assets/images/IMG-6016.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/IMG-6017.webp" type="image/webp">
-          <img src="assets/images/IMG-6017.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Vika-04.webp" type="image/webp">
-          <img src="assets/images/Vika-04.jpg" alt="Портрет — Vika" width="2500" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Planik-81.webp" type="image/webp">
-          <img src="assets/images/Planik-81.jpg" alt="Репортаж — Planik" width="1783" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/ElevenA-08.webp" type="image/webp">
-          <img src="assets/images/ElevenA-08.jpg" alt="Репортаж — 11А" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Dasha-18.webp" type="image/webp">
-          <img src="assets/images/Dasha-18.jpg" alt="Портрет — Dasha" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Vika-11.webp" type="image/webp">
-          <img src="assets/images/Vika-11.jpg" alt="Портрет — Vika" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Springcon-04.webp" type="image/webp">
-          <img src="assets/images/Springcon-04.jpg" alt="Репортаж — Springcon" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Planik-131.webp" type="image/webp">
-          <img src="assets/images/Planik-131.jpg" alt="Репортаж — Planik" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Spring2026-35.webp" type="image/webp">
-          <img src="assets/images/Spring2026-35.jpg" alt="Репортаж — Spring 2026" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Podsneznik-007.webp" type="image/webp">
-          <img src="assets/images/Podsneznik-007.jpg" alt="Репортаж — Подснежник" width="2500" height="1667" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/margo-07.webp" type="image/webp">
-          <img src="assets/images/margo-07.jpg" alt="Портрет — Margo" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/IMG-6014.webp" type="image/webp">
-          <img src="assets/images/IMG-6014.jpg" alt="Репортаж" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-      <figure class="gallery__item reveal">
-        <picture>
-          <source srcset="assets/images/webp/Spring2026-44.webp" type="image/webp">
-          <img src="assets/images/Spring2026-44.jpg" alt="Репортаж — Spring 2026" width="1667" height="2500" loading="lazy" decoding="async">
-        </picture>
-      </figure>
-
-    </section>
-  </main>
-
-  <footer class="site-footer reveal">
-    <div class="container site-footer__inner">
-      <a class="brand" href="index.html">Daniil&nbsp;Chernenkiy</a>
-
-      <ul class="socials">
-        <li><a href="https://t.me/DaniiilCH" class="socials__link socials__link--telegram" target="_blank" rel="me noopener" aria-label="Telegram"></a></li>
-        <li><a href="https://www.instagram.com/daniilchernenkiy/" class="socials__link socials__link--instagram" target="_blank" rel="me noopener" aria-label="Instagram"></a></li>
-      </ul>
-
-      <p class="site-footer__copy">© <span data-year>2026</span> Daniil Chernenkiy. Все права защищены.</p>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
+<script id="ch-main-js" src="./js/main.js"></script>
 </body>
 </html>

@@ -1,7 +1,19 @@
-/* ==========================================================================
-   Daniil Chernenkiy — photography portfolio
-   Styles: tokens -> base -> typography -> layout -> header -> gallery -> footer
-   ========================================================================== */
+/*
+Theme Name: Daniil Chernenkiy Portfolio
+Description: Собственная лёгкая тема портфолио: точный порт HTML-версии сайта. Проекты и главная галерея управляются из админки WordPress без плагинов.
+Author: Daniil Chernenkiy
+Version: 1.0
+Requires PHP: 8.0
+Text Domain: ch-portfolio
+License: Private
+*/
+
+/*
+   Этот файл — перенос style.css из HTML-версии сайта (D:\html\Portfolio\style.css).
+   Структура и значения сохранены 1 в 1; разделы 15-16 в конце — небольшие
+   дополнения, специфичные для WordPress (пояснения у каждого правила).
+   reset.css перенесён отдельно и подключается из header.php.
+*/
 
 /* ---------- 1. Design tokens ---------- */
 :root {
@@ -188,7 +200,7 @@ main {
 }
 
 /* Резервная раскладка «колодцем» (columns) заполняет сайт по колонкам:
-   сверху вниз первую, потом вторую — порядок фотографий читается непонятно.
+   сверху вниз первую, потом вторую — порядок из админки читается непонятно.
    На главной js/main.js перестраивает галерею этим классом в ряды:
    фото №1–№3 ложатся в верхний ряд слева направо, дальше — вниз.
    Без JS и при сломанном скрипте остаётся прежняя колоночная вёрстка. */
@@ -419,7 +431,6 @@ main {
   mask-image: url("assets/icons/instagram.svg");
 }
 
-
 .site-footer__copy {
   justify-self: end;
   text-align: right;
@@ -492,6 +503,18 @@ main {
     opacity var(--reveal-duration) var(--reveal-ease) var(--reveal-delay, 0ms),
     transform var(--header-slide) var(--reveal-ease),
     padding var(--header-slide) var(--reveal-ease);
+}
+
+/* Под админ-баром прилипающая шапка опускается на его высоту
+   (admin-bar вешается на body, .js — на html, поэтому селекторы разные) */
+body.admin-bar .site-header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .site-header {
+    top: 46px;
+  }
 }
 
 .js .site-header.is-compact {
@@ -689,7 +712,8 @@ html.is-lightbox-open body {
 }
 
 /* ---------- 13. Раздел «Мои проекты» ----------
-   Карточки и галереи собираются projects/render.js из projects/projects.js.
+   В WordPress-версии карточки и галереи проектов собирает PHP из данных
+   WordPress, а не render.js из HTML-версии. Классы и вид — те же.
    Обложки и фото статичны, как в галерее на главной: реагирует только подпись,
    а не снимок. */
 .projects-page {
@@ -824,11 +848,16 @@ html.is-lightbox-open body {
 }
 
 /* Пока в проекте нет фотографий, main растянут на экран колонкой: пустая
-   галерея не отдаёт футер вверх, а заглушка стоит по центру. Когда фотографии
-   появляются, .project-empty удаляет render.js, и страница растёт сама. */
+   галерея не отдаёт футер вверх, а заглушка стоит по центру. Класс
+   .page-project-has-photos ставит single-project.php, когда фото есть —
+   тогда заглушка не нужна и страница растёт сама. */
 .page-project main {
   display: flex;
   flex-direction: column;
+}
+
+.page-project-has-photos .project-empty {
+  display: none; /* в WordPress-версии заглушку скрывает CSS, а не JS */
 }
 
 .project-empty {
@@ -854,7 +883,7 @@ html.is-lightbox-open body {
 /* ---------- 14. Кнопка «наверх» ----------
    Узел создаёт js/main.js (backToTopButton), поэтому в разметке её нет,
    а без JS она просто не существует. Класс .is-visible ставит тот же JS
-   после прокрутки за порог;appearance — одно мягкое появление, тем же
+   после прокрутки за порог; appearance — одно мягкое появление, тем же
    механизмом, что и остальной вход: opacity + небольшой подъём. */
 .js .back-to-top {
   position: fixed;
@@ -914,4 +943,45 @@ html.is-lightbox-open body {
   .js .back-to-top.is-visible {
     transform: none;
   }
+}
+
+/* ---------- 15. Дополнения WordPress-версии ---------- */
+/* Абзац внутри «Обо мне» на странице контактов: текст приходит из редактора
+   WordPress, у него нет классов оригинальной вёрстки, поэтому интервалы
+   задаёт сетка группы (gap), а маргины абзацев обнулены reset.css. */
+.about__text p {
+  margin: 0;
+}
+
+/* Ссылки внутри абзацев текста «Обо мне» подчёркиваются — в статичной вёрстке
+   ссылок в абзацах не было, в редакторе они возможны. Список контактов
+   (.about__contacts) остаётся без подчёркивания, как в оригинале. */
+.about__text p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Текст описания проекта (поле «Краткое описание» в админке) — абзацы из
+   редактора живут внутри .project-head__summary. */
+.project-head__summary p {
+  margin: 0 0 var(--space-xs);
+}
+
+.project-head__summary p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 16. Защита от системных стилей WordPress ---------- */
+/* WordPress вставляет на страницы классы (alignwide, wp-block и т.п.), если
+   пользователь вставит блок галереи в текст — картинки не должны разъезжаться. */
+.gallery img,
+.about__portrait img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Комментариев и пагинации в портфолио нет — на всякий случай прячем вывод,
+   если он когда-то появится. */
+.page-navigation {
+  display: none;
 }
